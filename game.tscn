@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://c74qbxeeavj50"]
+
+[ext_resource type="PackedScene" uid="uid://bxfsrbqqlgg6" path="res://bg.tscn" id="1_du5hg"]
+[ext_resource type="Script" path="res://game.gd" id="1_gj7va"]
+[ext_resource type="PackedScene" uid="uid://b8p6dux23d1ms" path="res://ground.tscn" id="2_orlk8"]
+[ext_resource type="PackedScene" uid="uid://c44cwrsqewwt" path="res://playerchar1.tscn" id="3_0aa7g"]
+[ext_resource type="PackedScene" uid="uid://cndii5aix6kl3" path="res://hud.tscn" id="5_e4q38"]
+[ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://scenes/game_over.tscn" id="6_s0eas"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_gj7va")
+
+[node name="Bg" parent="." instance=ExtResource("1_du5hg")]
+
+[node name="Ground" parent="." instance=ExtResource("2_orlk8")]
+
+[node name="Player" parent="." instance=ExtResource("3_0aa7g")]
+position = Vector2(57, 491)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="HUD" parent="." instance=ExtResource("5_e4q38")]
+
+[node name="GameOver" parent="." instance=ExtResource("6_s0eas")]
