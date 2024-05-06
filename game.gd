@@ -118,9 +118,15 @@ func remove_obs(obs):
 func hit_obs(body):
 	if body.name == "Player":
 		if health == 1:
+			$Player.get_node("AnimatedSprite2D").play("hurt")
 			game_over()
 		else:
 			health -= 1
+			$Player.get_node("AnimatedSprite2D").play("hurt")
+			$Player.get_node("Effects").play("hurt_blink")
+			$Player.get_node("HurtTimer").start()
+			await $Player.get_node("HurtTimer").timeout
+			$Player.get_node("Effects").play("RESET")
 
 func game_over():
 	check_high_score()
