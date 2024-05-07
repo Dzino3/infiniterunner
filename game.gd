@@ -1,7 +1,7 @@
 extends Node
 
 var stump_scene = preload("res://scenes/stump.tscn")
-var rock_scene = preload("res://scenes/rock.tscn")
+var rock_scene = preload("res://obstacle_stone.tscn")
 var barrel_scene = preload("res://scenes/barrel.tscn")
 var bird_scene = preload("res://scenes/bird.tscn")
 var obstacle_types := [stump_scene, rock_scene, barrel_scene]
@@ -13,9 +13,9 @@ const CAM_START_POS := Vector2i(576, 324)
 var score : int
 const SCORE_MODIFIER : int = 10
 var speed : float
-const START_SPEED : float = 4
+const START_SPEED : float = 7
 const MAX_SPEED : int = 25
-const SPEED_MODIFIER : int = 5000
+const SPEED_MODIFIER : int = 4000
 var screen_size : Vector2i
 var ground_height : int
 var game_running: bool

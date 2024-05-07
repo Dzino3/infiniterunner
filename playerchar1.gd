@@ -22,7 +22,6 @@ func _physics_process(delta):
 			if Input.is_action_pressed("ui_accept"):
 				velocity.y = JUMP_SPEED
 			elif Input.is_action_pressed("ui_down"):
-				anim.play("duck")
 				$RunCol.disabled = true
 			else:
 				anim.play("run")
