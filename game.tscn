@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c74qbxeeavj50"]
+[gd_scene load_steps=8 format=3 uid="uid://c74qbxeeavj50"]
 
 [ext_resource type="PackedScene" uid="uid://bxfsrbqqlgg6" path="res://bg.tscn" id="1_du5hg"]
 [ext_resource type="Script" path="res://game.gd" id="1_gj7va"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c44cwrsqewwt" path="res://playerchar1.tscn" id="3_0aa7g"]
 [ext_resource type="PackedScene" uid="uid://cndii5aix6kl3" path="res://hud.tscn" id="5_e4q38"]
 [ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://scenes/game_over.tscn" id="6_s0eas"]
+[ext_resource type="PackedScene" uid="uid://od8mom0qomaf" path="res://heart_container.tscn" id="7_ln7em"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_gj7va")
@@ -24,3 +25,11 @@ position = Vector2(576, 324)
 [node name="HUD" parent="." instance=ExtResource("5_e4q38")]
 
 [node name="GameOver" parent="." instance=ExtResource("6_s0eas")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HeartContainer" parent="CanvasLayer" instance=ExtResource("7_ln7em")]
+offset_left = 31.0
+offset_top = 44.0
+offset_right = 125.0
+offset_bottom = 84.0

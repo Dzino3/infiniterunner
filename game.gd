@@ -1,5 +1,7 @@
 extends Node
 
+@onready var heartsContainer = $CanvasLayer/HeartContainer
+
 var stump_scene = preload("res://scenes/stump.tscn")
 var rock_scene = preload("res://obstacle_stone.tscn")
 var barrel_scene = preload("res://scenes/barrel.tscn")
@@ -24,6 +26,7 @@ var difficulty
 const MAX_DIFFICULTY : int = 2
 var high_score: int
 var health : int
+var MAX_HEALTH : int = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,6 +35,7 @@ func _ready():
 	$GameOver.get_node("Button").pressed.connect(new_game)
 	$GameOver.get_node("Button2").pressed.connect(quit)
 	new_game()
+	heartsContainer.setMaxHearts(MAX_HEALTH)
 
 func new_game():
 	score = 0
@@ -39,7 +43,7 @@ func new_game():
 	game_running = false
 	get_tree().paused = false
 	difficulty = 0
-	health = 4
+	health = MAX_HEALTH
 	
 	for obs in obstacles:
 		obs.queue_free()
@@ -89,7 +93,7 @@ func generate_obs():
 			obs = obs_type.instantiate()
 			var obs_height = obs.get_node("Sprite2D").texture.get_height()
 			var obs_scale = obs.get_node("Sprite2D").scale
-			var obs_x : int = screen_size.x + score + 100 + (i * 100)
+			var obs_x : int = screen_size.x + score + 100 + (i * 100) + 1000
 			var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) + 5
 			last_obs = obs
 			add_obs(obs, obs_x, obs_y)
@@ -122,11 +126,15 @@ func hit_obs(body):
 			game_over()
 		else:
 			health -= 1
+			print(health)
+			heartsContainer.updateHearts(health)
+			print(health)
 			$Player.get_node("AnimatedSprite2D").play("hurt")
 			$Player.get_node("Effects").play("hurt_blink")
 			$Player.get_node("HurtTimer").start()
 			await $Player.get_node("HurtTimer").timeout
 			$Player.get_node("Effects").play("RESET")
+			
 
 func game_over():
 	check_high_score()

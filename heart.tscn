@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0wels003bqhr"]
+
+[ext_resource type="Texture2D" uid="uid://dcr0ktqmvocre" path="res://assets/img/obstacles/heart.png" id="1_64kgp"]
+[ext_resource type="Script" path="res://heart.gd" id="1_pvsak"]
+
+[node name="Heart" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(30, 30)
+offset_right = 30.0
+offset_bottom = 30.0
+script = ExtResource("1_pvsak")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_64kgp")
+centered = false
