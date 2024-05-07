@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b8p6dux23d1ms" path="res://ground.tscn" id="2_orlk8"]
 [ext_resource type="PackedScene" uid="uid://c44cwrsqewwt" path="res://playerchar1.tscn" id="3_0aa7g"]
 [ext_resource type="PackedScene" uid="uid://cndii5aix6kl3" path="res://hud.tscn" id="5_e4q38"]
-[ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://scenes/game_over.tscn" id="6_s0eas"]
+[ext_resource type="PackedScene" uid="uid://dam4glspafnst" path="res://scenes/game_over.tscn" id="6_s0eas"]
 [ext_resource type="PackedScene" uid="uid://od8mom0qomaf" path="res://heart_container.tscn" id="7_ln7em"]
 
 [node name="Game" type="Node"]

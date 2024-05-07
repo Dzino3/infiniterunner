@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://lotwuige1aee"]
+[gd_scene format=3 uid="uid://dam4glspafnst"]
 
 [node name="GameOver" type="CanvasLayer"]
 process_mode = 2

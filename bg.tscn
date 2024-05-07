@@ -1,16 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxfsrbqqlgg6"]
+[gd_scene load_steps=5 format=3 uid="uid://bxfsrbqqlgg6"]
 
-[ext_resource type="Texture2D" uid="uid://cysa04ywr7oi3" path="res://assets/img/background/plx-1.png" id="1_15tht"]
 [ext_resource type="Texture2D" uid="uid://e0yii4lhtmd5" path="res://assets/img/bg/bg1.png" id="2_81rr4"]
 [ext_resource type="Texture2D" uid="uid://csj1xbhf4icfq" path="res://assets/img/bg/bg2.png" id="3_ait2p"]
 [ext_resource type="Texture2D" uid="uid://ocrlu6w1x312" path="res://assets/img/bg/bg3.png" id="4_xpukk"]
 [ext_resource type="Texture2D" uid="uid://d14lm2k7ki1h" path="res://assets/img/bg/bg4.png" id="5_rerbw"]
 
 [node name="Bg" type="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_15tht")
-centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.6, 1)
