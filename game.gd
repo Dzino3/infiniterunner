@@ -23,7 +23,7 @@ var ground_height : int
 var game_running: bool
 var last_obs
 var difficulty
-const MAX_DIFFICULTY : int = 2
+const MAX_DIFFICULTY : int = 3
 var high_score: int
 var health : int
 const MAX_HEALTH : int = 4
