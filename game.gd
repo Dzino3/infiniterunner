@@ -15,7 +15,7 @@ const CAM_START_POS := Vector2i(576, 324)
 var score : int
 const SCORE_MODIFIER : int = 10
 var speed : float
-const START_SPEED : float = 7
+const START_SPEED : float = 10
 const MAX_SPEED : int = 25
 const SPEED_MODIFIER : int = 4000
 var screen_size : Vector2i
@@ -26,7 +26,7 @@ var difficulty
 const MAX_DIFFICULTY : int = 2
 var high_score: int
 var health : int
-var MAX_HEALTH : int = 4
+const MAX_HEALTH : int = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,7 +35,6 @@ func _ready():
 	$GameOver.get_node("Button").pressed.connect(new_game)
 	$GameOver.get_node("Button2").pressed.connect(quit)
 	new_game()
-	heartsContainer.setMaxHearts(MAX_HEALTH)
 
 func new_game():
 	score = 0
@@ -44,6 +43,10 @@ func new_game():
 	get_tree().paused = false
 	difficulty = 0
 	health = MAX_HEALTH
+	for n in heartsContainer.get_children():
+		heartsContainer.remove_child(n)
+		n.queue_free()
+	heartsContainer.setMaxHearts(MAX_HEALTH)
 	
 	for obs in obstacles:
 		obs.queue_free()
@@ -123,12 +126,11 @@ func hit_obs(body):
 	if body.name == "Player":
 		if health == 1:
 			$Player.get_node("AnimatedSprite2D").play("hurt")
+			#heartsContainer.updateHearts(health)
 			game_over()
 		else:
 			health -= 1
-			print(health)
 			heartsContainer.updateHearts(health)
-			print(health)
 			$Player.get_node("AnimatedSprite2D").play("hurt")
 			$Player.get_node("Effects").play("hurt_blink")
 			$Player.get_node("HurtTimer").start()
